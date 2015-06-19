@@ -1,0 +1,24 @@
+//上の方に追加していくように
+
+
+
+5/18
+・GameMainに　Bttale,Character,Enemy,Player　を追加しました。
+・Select　を追加しました。
+・簡単な基盤を組みました。
+
+・Scene　の切り替えを speceにしてあります。
+・Title → GameMain　→　Result　の順で切り替わります。
+
+
+5/15
+・ゲームの基本として必要な　InputState,Renderer,Sound,SettingData,Sceneを追加しました。
+・Title,GameMainを追加し、基礎の内容だけを書きました。
+
+
+6/1　
+・パズルクラスの追加
+　それに伴うInitialize,Update,Drawの追加
+・パズルに使用する画像の追加
+　game1の読み込みも書き換えました
+・マウスを扱えるようにInputStateに処理を追加
