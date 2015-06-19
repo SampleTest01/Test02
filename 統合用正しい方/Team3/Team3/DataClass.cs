@@ -8,6 +8,7 @@ namespace Team3
    public class DataClass
     {
         bool pendulumClick;
+        bool attackFlg;
         int eraseNum;
         public DataClass()
         { }
@@ -27,6 +28,12 @@ namespace Team3
             get { return eraseNum; }
         }
 
+
+        public bool AttackFlg
+        {
+            set { this.attackFlg = value; }
+            get { return attackFlg; }
+        }
 
 
     }

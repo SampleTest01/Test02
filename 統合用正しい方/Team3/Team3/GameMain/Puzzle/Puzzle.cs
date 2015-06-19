@@ -128,18 +128,19 @@ namespace Team3
             //特殊な矢印チェック
             TestSpecial();
 
-
-            //マウス処理できるか？
-            if (m_InputFlg)
-            {
-                Clear(); //消す処理
-            }
-            else
-            {
-                CheckErase();//個数チェック
-                MovePuzzle();//パズル移動
-                ChangeArray(); //配列書き換え処理
-            }
+            
+                //マウス処理できるか？
+                if (m_InputFlg&&!data.AttackFlg)
+                {
+                    Clear(); //消す処理
+                }
+                else
+                {
+                    CheckErase();//個数チェック
+                    MovePuzzle();//パズル移動
+                    ChangeArray(); //配列書き換え処理
+                }
+            
         }
 
         private void ChangeBlock()
@@ -511,6 +512,7 @@ namespace Team3
                     {
                         Check();
                         m_InputFlg = false;//操作できなくする
+                        data.AttackFlg = true;
                     }
                 }
             }
@@ -660,89 +662,6 @@ namespace Team3
                     break;
             }
         }
-
-
-        //private void DrawPazzle(int[,] array, int x, int y, float moveY, Renderer renderer, float alpha = 1.0f)
-        //{
-        //    if (array[x, y] == 0) return;
-
-        //    string textureName = "";
-        //    Vector2 pos = new Vector2(SIZE * x , SIZE * y + moveY);
-            
-
-        //    switch (array[x, y])
-        //    {
-        //        case 1:
-        //            textureName = "main_up_hand";
-        //            break;
-        //        case 2:
-        //            textureName = "main_down_hand";
-                   
-        //            break;
-        //        case 3:
-        //            textureName = "main_left_hand";
-        //            break;
-        //        case 4:
-        //            textureName = "main_right_hand";
-        //            break;
-        //        case 5:
-        //            textureName = "main_down_left_hand";
-        //            break;
-        //        case 6:
-        //            textureName = "main_down_right_hand";
-        //            pos -= new Vector2(35, 35);
-        //            break;
-        //        case 7:
-        //            textureName = "main_up_left_hand";
-        //            pos -= new Vector2(35, 35);
-        //            break;
-        //        case 8:
-        //            textureName = "main_up_right_hand";
-        //            pos -= new Vector2(35, 35);
-        //            break;
-        //    }
-
-        //    renderer.DrawSpin2(textureName, pos, 0, Vector2.Zero, alpha);
-        //}
-        //private void DrawStandby(int[,] array, int x, int y, float moveY, Renderer renderer)
-        //{
-        //    if (array[x, y] == 0) return;
-        //    string textureName = "";
-        //    Vector2 pos2 = new Vector2(SIZE * x , (-SIZE * HEIGHT) + SIZE * y + moveY);
-        //    switch (array[x, y])
-        //    {
-        //        case 1:
-        //            textureName = "main_up_hand";
-        //            break;
-        //        case 2:
-        //            textureName = "main_down_hand";
-        //            break;
-        //        case 3:
-        //            textureName = "main_left_hand";
-        //            break;
-        //        case 4:
-        //            textureName = "main_right_hand";
-        //            break;
-        //        case 5:
-        //            textureName = "main_down_left_hand";
-        //            pos2 -= new Vector2(0, 0);
-        //            break;
-        //        case 6:
-        //            textureName = "main_down_right_hand";
-        //            pos2 -= new Vector2(35, 35);
-        //            break;
-        //        case 7:
-        //            textureName = "main_up_left_hand";
-        //            pos2 -= new Vector2(35, 35);
-        //            break;
-        //        case 8:
-        //            textureName = "main_up_right_hand";
-        //            pos2 -= new Vector2(35, 35);
-        //            break;
-        //    }
-        //    renderer.DrawSpin2(textureName, pos2, 0, Vector2.Zero, alpha);
-        //}
-
 
         private void Print(int[,] m)
         {
