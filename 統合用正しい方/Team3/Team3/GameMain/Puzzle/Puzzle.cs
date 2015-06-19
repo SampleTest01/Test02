@@ -52,11 +52,12 @@ namespace Team3
         bool changeArrayFlg;
 
         EffectManager em;
-
-        public Puzzle(InputState input,DataClass data)
+        Sound sound;
+        public Puzzle(InputState input,Sound sound,DataClass data)
         {
             this.input = input;
             this.data = data;
+            this.sound = sound;
         }
 
         public void Initialize()
@@ -513,6 +514,7 @@ namespace Team3
                         Check();
                         m_InputFlg = false;//操作できなくする
                         data.AttackFlg = true;
+                        sound.PlaySE("puzzle_delete",1f);
                     }
                 }
             }

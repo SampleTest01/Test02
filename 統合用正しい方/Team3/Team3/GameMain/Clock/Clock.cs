@@ -18,12 +18,14 @@ namespace Team3
         float spinNum;
         bool missFlg;
         //動ける角度によって動く速さも角度も変わる。
+        Sound sound;
         InputState input;
         DataClass data;
-        public Clock(InputState input, DataClass data)
+        public Clock(InputState input,Sound sound, DataClass data)
         {
             this.input = input;
             this.data = data;
+            this.sound = sound;
         }
 
         public void Initialize()
@@ -62,6 +64,7 @@ namespace Team3
             {
                 longRotate = 0;
                 spinNum++;
+                sound.PlaySE("clock_one_rotation",1);
             }
         }
 
@@ -69,9 +72,15 @@ namespace Team3
         {
             huriko += hurikospeed;
             if (huriko < -30)
+            {
                 hurikospeed = speed;
+                sound.PlaySE("pendulum",1);
+            }
             else if (huriko > 30)
-                hurikospeed = -speed; 
+            {
+                hurikospeed = -speed;
+               sound.PlaySE("pendulum",1);
+            }
         }
         //汚いソースの見本です
         private void ClickCheck()
@@ -81,10 +90,12 @@ namespace Team3
                 if (huriko >= 25 && huriko <= 30 || huriko <= -25 && huriko >= -30)
                 {
                     data.PendulumClick = true;
+                    sound.PlaySE("hand_change_true",1);
                 }
                 else
                 {
                     missFlg = true;
+                    sound.PlaySE("hand_change_false",1);  
                 }
 
             }

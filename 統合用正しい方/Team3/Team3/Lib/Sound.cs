@@ -21,7 +21,7 @@ namespace Team3
 
         public void LoadBGM(string name)
         {
-            bgms[name] = contentManager.Load<Song>(name);
+            bgms[name] = contentManager.Load<Song>("SoundBGM\\"+name);
         }
 
         public bool IsStopBGM()
@@ -49,7 +49,7 @@ namespace Team3
 
         public void LoadSE(string name, bool loopFlag = false)
         {
-            SEs[name] = contentManager.Load<SoundEffect>(name);
+            SEs[name] = contentManager.Load<SoundEffect>("SoundSE\\"+name);
         }
 
         public void PlaySE(string name ,float volume , float pan = 0.0f)

@@ -33,9 +33,9 @@ namespace Team3
           SetViewport();
          
           //追加
-          puzzle = new Puzzle(input,data);
+          puzzle = new Puzzle(input,sound,data);
           battle = new Battle(input);
-          clock = new Clock(input,data);
+          clock = new Clock(input,sound,data);
           puzzle.Initialize();
           battle.Initialize();
           clock.Initialize();

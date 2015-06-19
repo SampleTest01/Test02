@@ -15,3 +15,4 @@ C:\Users\wajo\Desktop\チーム制作\2年前期(2)\統合用正しい方 - コ�
 C:\Users\ganzin\Desktop\ti-mu\統合用正しい方\Team3\Team3Content\obj\x86\Debug\Team3Content.contentprojResolveAssemblyReference.cache
 C:\Users\wajo\Documents\GitHub\Test02\統合用正しい方\Team3\Team3Content\obj\x86\Debug\Team3Content.contentprojResolveAssemblyReference.cache
 C:\Users\戊屋\Documents\GitHub\Test02\統合用正しい方\Team3\Team3Content\obj\x86\Debug\Team3Content.contentprojResolveAssemblyReference.cache
+C:\Users\wajo\Desktop\チーム制作\統合用正しい方\Team3\Team3Content\obj\x86\Debug\Team3Content.contentprojResolveAssemblyReference.cache

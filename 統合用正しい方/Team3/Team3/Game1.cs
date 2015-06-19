@@ -52,6 +52,7 @@ namespace Team3
 
             currentScene.Initialize();
             base.Initialize();
+            
         }
 
 
@@ -59,7 +60,7 @@ namespace Team3
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            
             List<string> title = new List<string>()
             {   //たいとる
                 "title_bg_0","title_click_start","title_logo",
@@ -91,34 +92,77 @@ namespace Team3
                 //リザルト
                 "result_expoint","result_gear","result_separator_line","result_word_frame","result"
             };
+            
+            //サウンド用追加しました
+            List<string> soundse = new List<string>()
+            {
+
+                ////タイトル
+                "title_decide_se",
+                ////メニュー
+                "menu_clock_hand","menu_decide1","menu_decide2","menu_monster_spin","menu_window_show",
+                ////メイン
+                //戦闘
+                "enemy_attack","enemy_damage","enemy_new_show",
+                //時計
+                "clock_one_rotation","hand_change_false","hand_change_true","player_damage",
+                //パズル
+                "pendulum","puzzle_delete","puzzle_spin_hand",
+                ////リザルト
+                "result_gear","result_num_up","result_show_monster"
+            
+            };
+
+            List<string> soundbgm = new List<string>()
+            {
+                "title_bgm","result_bgm","menu_bgm"
+            };
+
+            foreach (var name in soundse)
+            {
+                sound.LoadSE(name);
+            }
+            foreach(var name in soundbgm)
+            {
+                sound.LoadBGM(name);
+            }
+
             LoadTexture(title, "./title/");
             LoadTexture(select, "./select/");
             LoadTexture(puzzle, "./puzzle/");
             LoadTexture(battle, "./Battle/");
             LoadTexture(clock, "./Clock/");
             LoadTexture(result, "./Result/");
-
+            
             renderer.LoadTexture("MyEffect1");
             renderer.LoadTexture("MyEffect2");
 
             renderer.LoadTexture("cursor");
 
             renderer.LoadFont("ResultFont");
+
+            
+           
+
         }
 
         private void LoadTexture(List<string> contentName,string path)
         {
             foreach (var s in contentName) renderer.LoadTexture(s,path);
+           
         }
 
+       
         protected override void UnloadContent()
         {
+            
         }
 
 
         //更新
         protected override void Update(GameTime gameTime)
         {
+            
             if (Keyboard.GetState().IsKeyDown(Keys.Escape)) { this.Exit(); }
 
             MouseState m = Mouse.GetState();
