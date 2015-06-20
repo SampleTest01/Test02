@@ -11,9 +11,10 @@ namespace Team3
         float rotate = 0.0f;
         float angle = 0.0f;
         Vector2 origin = new Vector2(142.0f, 142.0f);
-        public Gear()
+        Sound sound;
+        public Gear(Sound sound)
         {
-
+            this.sound = sound;
         }
 
         public void Initialize()
@@ -23,6 +24,8 @@ namespace Team3
 
         public void Update()
         {
+            sound.PlaySE("result_gear",0.005f);
+
             angle = angle + 1.0f;
             if (angle % 360 == 0 && angle != 0)
             { angle = 0; }

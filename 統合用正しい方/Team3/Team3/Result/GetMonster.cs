@@ -12,10 +12,15 @@ namespace Team3
         private List<string> monster;
         private int No = 0;
         private bool drawEnd;
+        private Sound sound;
 
-        public GetMonster(List<string> monster)
+        public GetMonster(List<string> monster,Sound sound)
         {
+            this.sound = sound;
+
+            if(monster[0] != null)
             this.monster = monster;
+            
             alpha = new List<float>();
             for (int i = 0; i < monster.Count; i++)
             { alpha.Add(0); }
@@ -32,13 +37,26 @@ namespace Team3
             No = 0;
         }
 
-        public void Update()
+        public void Update(InputState input)
         {
+            if (alpha[0] == 0 )
+            {
+                sound.PlaySE("result_show_monster", 0.05f);
+            }
+
+            if (input.mouseClick())
+            {
+                this.AllDraw();
+            }
+
             if (No < alpha.Count)
             {
                 alpha[No] = alpha[No] + 0.03f;
                 if (alpha[No] >= 1)
-                { No = No + 1; }
+                {
+                    No = No + 1;
+                    sound.PlaySE("result_show_monster", 0.05f);
+                }
             }
             else
             {
